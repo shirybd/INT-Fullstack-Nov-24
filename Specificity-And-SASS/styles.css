@@ -1,0 +1,63 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    font-size: calc(1.2rem + 0.5vw);
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+.intro {
+    background: lightblue;
+    height: 560px;
+}
+
+.intro > p {
+    border: 2px solid lime;
+}
+
+article > .box {
+    height: 50px;
+}
+
+.box {
+    height: 20px;
+}
+
+#box1 {
+    background: hsl(160deg 75 35);
+}
+
+#box2 {
+    background: hsl(164deg 79 45);
+}
+
+.skills li {
+    border: 2px solid hsl(0 0 80);
+    margin-block: 8px;
+}
+
+.rounded {
+    border-radius: 4px;
+}
+
+h2 + p {
+    color: deeppink;
+}
+
+.last-part li + li {
+    color: deeppink;
+}
+
+#ball1 {
+    width: 100px;
+    height: 100px;
+    background: hsl(165deg 78 55);
+}
