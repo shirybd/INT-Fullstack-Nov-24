@@ -78,3 +78,12 @@ h2 + p {
     height: 100px;
     background: hsl(165deg 78 55);
 }
+
+a:hover {
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+    color: orange;
+}
