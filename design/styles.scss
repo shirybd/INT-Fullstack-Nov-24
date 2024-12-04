@@ -35,3 +35,36 @@ main > * + * {
 .content-sm {
     --_screen-size-lg: 45ch;
 }
+
+.toggle {
+    .toggle-container {
+        position: relative;
+        width: fit-content;
+    }
+
+    .slot {
+        width: 70px;
+        height: 20px;
+        background: lightgray;
+        border-radius: 20px;
+    }
+
+    .pill {
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        height: 30px;
+        aspect-ratio: 1;
+        border: 2px solid black;
+        border-radius: 50%;
+        background: white;
+    }
+
+    input {
+        display: none;
+
+        &:checked + label .pill {
+            right: 0;
+        }
+    }
+}
