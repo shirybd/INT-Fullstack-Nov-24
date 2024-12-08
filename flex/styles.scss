@@ -11,6 +11,10 @@ ul, ol, menu {
     list-style: none;
 }
 
+html, body {
+    height: 100%;
+}
+
 html {
     font-size: 1.2rem;
 }
@@ -19,6 +23,21 @@ body {
     font-family: system-ui;
     line-height: 1.5;
     color: hsl(0deg 0% 5%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main {
+    flex: 1;
+    // extended "shorthand"
+    // flex: 1 1 0;
+
+    // default values:
+    // flex-grow: 0;
+    // flex-shrink: 1;
+    // flex-basis: auto;
 }
 
 .reading-container {
@@ -30,7 +49,6 @@ body {
     border: 1px solid currentColor;
     border-radius: 8px;
     padding: 0.5rem 1rem;
-    margin-block: 1rem;
 }
 
 .tag-list {
