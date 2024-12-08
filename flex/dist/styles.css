@@ -11,6 +11,11 @@ ul, ol, menu {
   list-style: none;
 }
 
+img {
+  display: block;
+  width: 100%;
+}
+
 html, body {
   height: 100%;
 }
@@ -30,6 +35,9 @@ body {
 
 main {
   flex: 1;
+}
+main > * + * {
+  margin-top: 2rem;
 }
 
 .reading-container {
