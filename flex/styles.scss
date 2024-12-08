@@ -18,6 +18,7 @@ html {
 body {
     font-family: system-ui;
     line-height: 1.5;
+    color: hsl(0deg 0% 5%);
 }
 
 .reading-container {
@@ -42,4 +43,8 @@ body {
         border-radius: 8px;
         padding: 0.2rem 0.5rem;
     }
+}
+
+footer {
+    background: hsl(0deg 0% 80%);
 }
