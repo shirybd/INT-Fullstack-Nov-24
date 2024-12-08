@@ -1,0 +1,45 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+ul, ol, menu {
+    padding: 0;
+    list-style: none;
+}
+
+html {
+    font-size: 1.2rem;
+}
+
+body {
+    font-family: system-ui;
+    line-height: 1.5;
+}
+
+.reading-container {
+    width: min(60ch, 100% - 2rem);
+    margin-inline: auto;
+}
+
+.box {
+    border: 1px solid currentColor;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin-block: 1rem;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+
+    > li {
+        border: 1px solid black;
+        border-radius: 8px;
+        padding: 0.2rem 0.5rem;
+    }
+}
