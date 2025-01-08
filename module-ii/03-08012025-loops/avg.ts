@@ -1,5 +1,7 @@
 let sumNumbers = 0;
 
+const numbersToRead = Number(prompt("how many numbers do you want to input?"));
+
 for (let i = 0; i < 5; i++) {
     const numberToAdd = Number(prompt("please enter a number"));
 
