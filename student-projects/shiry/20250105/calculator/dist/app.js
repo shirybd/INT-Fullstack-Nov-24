@@ -10,7 +10,7 @@ var SecondNumber = prompt("enter the second number");
 var operator = prompt("enter an operator (+, -, *, / )");
 var firstRealNumber = Number(firstNumber);
 var SecondRealNumber = Number(SecondNumber);
-if (firstRealNumber != null && SecondRealNumber != null) {
+if (!isNaN(firstRealNumber) && !isNaN(SecondRealNumber)) {
     if (operator === "+") {
         alert(firstRealNumber + SecondRealNumber);
     }

@@ -12,7 +12,7 @@ const operator =  prompt("enter an operator (+, -, *, / )");
 const firstRealNumber : number = Number(firstNumber);
 const SecondRealNumber : number = Number(SecondNumber);
 
-if(firstRealNumber!= null && SecondRealNumber!= null )
+if(!isNaN(firstRealNumber) && !isNaN(SecondRealNumber))
 {
     if (operator=== "+")
     {
