@@ -50,9 +50,11 @@ greet(5);
 const foo = function (x: number) { return x * 2; };
 
 alert(typeof foo);
+alert(typeof (typeof 5)); // "string"
 
 function double(x: number) {
     return x * 2;
 }
 
 alert(double(10));
+alert(foo(12));

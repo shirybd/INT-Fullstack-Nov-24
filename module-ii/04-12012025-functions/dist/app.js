@@ -30,7 +30,9 @@ greet("omer");
 greet(5);
 var foo = function (x) { return x * 2; };
 alert(typeof foo);
+alert(typeof (typeof 5)); // "string"
 function double(x) {
     return x * 2;
 }
 alert(double(10));
+alert(foo(12));
