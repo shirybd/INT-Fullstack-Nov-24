@@ -29,15 +29,15 @@ if (Number(operation) === 1 || Number(operation) === 2) {
         }
         Grade = prompt("please enter your grades (0-100) (Click 'cancel' to finish input)");
     }
+    switch (operation) {
+        case "1":
+            alert(FullName + ", your minimum grade is : " + minResault);
+            break;
+        case "2":
+            alert(FullName + ", your maximun grade is : " + maxResault);
+            break;
+    }
 }
 else {
     alert("your operation is invalid");
-}
-switch (operation) {
-    case "1":
-        alert(FullName + ", your minimum grade is : " + minResault);
-        break;
-    case "2":
-        alert(FullName + ", your maximun grade is : " + maxResault);
-        break;
 }
