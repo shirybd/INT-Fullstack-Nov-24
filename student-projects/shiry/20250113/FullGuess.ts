@@ -110,7 +110,7 @@ function checkUserNumber(randomNum:number,UserNumber:number,lastUserNumber:numbe
                 return("your got it !  ");
             else if (lastdiff>diff)
                 return("hot ");
-            else (lastdiff<diff)
+            else if (lastdiff<diff)
                 return("cold ");
             break;
 

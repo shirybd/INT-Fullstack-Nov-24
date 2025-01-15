@@ -83,9 +83,8 @@ function checkUserNumber(randomNum, UserNumber, lastUserNumber, gamemode) {
                 return ("your got it !  ");
             else if (lastdiff > diff)
                 return ("hot ");
-            else
-                (lastdiff < diff);
-            return ("cold ");
+            else if (lastdiff < diff)
+                return ("cold ");
             break;
     }
 }
