@@ -11,53 +11,77 @@
 
 let Difficulty : number=10;
 let gueeses :number=5;
-let mode:string = "classic"
+let gamemode:number=1;
 
-function menu ()
+menu("main");
+
+
+function menu (menuType:string)
 {
-    const userChoince =prompt("Hi, please choose : \n(1) start a new game \n(2) change the settings \n(3) quit");
-    if(userChoince!==null)
+    let userChoince =(menuType==="main")?Number(prompt("Hi, please choose : \n(1) start a new game \n(2) change the settings \n(3) quit")):Number(prompt("please choose what would you like to set : \n(1) Difficulty \n(2) Number of gueeses \n(3) Play mode"));
+    
+    if(userChoince!=0) 
     {
-        
-        switch(userChoince)
+        if(menuType==="main")
         {
-            case "1":
-                //newGame();
-                alert("1");
-                break;
-            case "2":
-                //SettingsMenu()
-                alert("2");
-                break;
-            case "3":
-                alert("see you later");
-                break;
-            default:
-                menu();
-                break;
+            switch(userChoince)
+            {
+                case 1:
+                    //newGame();
+                    break;
+                case 2:
+                    menu("settings");
+                    break;
+                case 3:
+                    alert("see you later");
+                    break;
+                default:
+                    menu(menuType);
+                    break;
+            }
+        }
+        else
+        {
+            switch(userChoince)
+            {
+                case 1:
+                    Difficulty=Number(prompt("choose your difficulty (1-100)"));
+                    break;
+                case 2:
+                    gueeses=Number(prompt("choose your Number of gueeses (1-100)"));
+                    break;
+                case 3:
+                    gamemode=Number(prompt("choose your game mode : \n(1) classic \n(2) hot-cold "));
+                    break;
+                default:
+                    menu(menuType);
+                    break;
+            }
         }
     }
-    else 
+    else
     {
-        confirm("are you sure ? ") ?  alert("see you later") : menu();
+        confirm("are you sure ? ") ?  alert("see you later") : menu(menuType);
     }
 }
 
-function settings ()
 
 
 
 
-function newGame(Difficulty:number,gueeses:number,mode:string)
+
+function newGame(Difficulty:number,gueeses:number,gamemode:number)
 {
     const randomNum : number = Math.floor(Math.random()*Difficulty);
-
+    let lastUserNumber:number=Infinity;
 
 for(let i=0; i<gueeses;i++)
 {
     const UserNumber :number = Number(prompt("try to guess my number...."));
     if (!isNaN(UserNumber)) {
+        checkUserNumber(randomNum,UserNumber,lastUserNumber,gamemode);
         
+        lastUserNumber=UserNumber
     }
     else 
         {
@@ -68,7 +92,32 @@ for(let i=0; i<gueeses;i++)
 }
 
 
+function checkUserNumber(randomNum:number,UserNumber:number,lastUserNumber:number,gamemode:number)
+{
+    switch(gamemode){
+        case 1:
+            if(randomNum<UserNumber)
+                return("your number is big ");
+            else if (randomNum>UserNumber)
+                return("your number is bigger ");
+            else
+                return("your got it ! ");
+            break;
+        case 2:
+            let diff = Math.abs(randomNum-UserNumber);
+            let lastdiff = Math.abs(randomNum-lastUserNumber);
+            if (diff===0)
+                return("your got it !  ");
+            else if (lastdiff>diff)
+                return("hot ");
+            else (lastdiff<diff)
+                return("cold ");
+            break;
+
+    
 
 
 
-menu();
+    }
+}
+
