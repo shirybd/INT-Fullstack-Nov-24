@@ -27,7 +27,7 @@ function menu (menuType:string)
             switch(userChoince)
             {
                 case 1:
-                    //newGame();
+                    newGame(Difficulty,gueeses,gamemode);
                     break;
                 case 2:
                     menu("settings");
