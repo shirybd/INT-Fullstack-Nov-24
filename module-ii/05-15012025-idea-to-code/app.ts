@@ -29,12 +29,10 @@ function moonlitGrove() {
         case "follow":
         case "f":
         case "2": return enchantedForrestClearing;
-        case undefined:
-            const shouldQuit = confirm("Are you sure you want to quit the game?");
-
-            return shouldQuit ? undefined : moonlitGrove;
+        case undefined: return;
         default:
-            alert(`Sorry, I don't know what is "${userAction}"`);
+            alertUnknownAction(userAction);
+
             return moonlitGrove;
     }
 }
@@ -53,12 +51,10 @@ function forgottenTemple() {
         case "return":
         case "r":
         case "2": return moonlitGrove;
-        case undefined:
-            const shouldQuit = confirm("Are you sure you want to quit the game?");
-
-            return shouldQuit ? undefined : forgottenTemple;
+        case undefined: return;
         default:
-            alert(`Sorry, I don't know what is "${userAction}"`);
+            alertUnknownAction(userAction);
+
             return forgottenTemple;
     }
 }
@@ -78,12 +74,10 @@ function enchantedForrestClearing() {
         case "back":
         case "h":
         case "2": return moonlitGrove;
-        case undefined:
-            const shouldQuit = confirm("Are you sure you want to quit the game?");
-
-            return shouldQuit ? undefined : enchantedForrestClearing;
+        case undefined: return;
         default:
-            alert(`Sorry, I don't know what is "${userAction}"`);
+            alertUnknownAction(userAction);
+
             return enchantedForrestClearing;
     }
 }
@@ -104,18 +98,32 @@ function hiddenChamber() {
         case "enter":
         case "e":
         case "2": return enchantedForrestClearing;
-        case undefined:
-            const shouldQuit = confirm("Are you sure you want to quit the game?");
-
-            return shouldQuit ? undefined : hiddenChamber;
+        case undefined: return;
         default:
-            alert(`Sorry, I don't know what is "${userAction}"`);
+            alertUnknownAction(userAction);
+
             return hiddenChamber;
     }
 }
 
 function getUserAction(text: string) {
-    const userAction = prompt(text);
+    let userAction = prompt(text);
+    let parsedUserAction = userAction?.trim().toLowerCase();
 
-    return userAction?.trim().toLowerCase();
+    while (parsedUserAction === undefined) {
+        const shouldQuit = confirm("Are you sure you want to quit the game?");
+
+        if (shouldQuit) {
+            return;
+        }
+
+        userAction = prompt(text);
+        parsedUserAction = userAction?.trim().toLowerCase();
+    }
+
+    return parsedUserAction;
+}
+
+function alertUnknownAction(userAction: string) {
+    alert(`Sorry, I don't know what is "${userAction}"`);
 }
