@@ -1,5 +1,11 @@
 // API - Application Programmable Interface
 export function operate(operator: Operator) {
+    if (shouldClearInput) {
+        shouldClearInput = false;
+        storedOperation = undefined;
+        userInput = memory;
+    }
+    
     calculate();
     display = storedOperation ? memory : display;
     storedOperation = operator;
@@ -9,17 +15,22 @@ export function operate(operator: Operator) {
 export function equals() {
     calculate();
     display = memory;
-    storedOperation = undefined;
-    userInput = 0;
+    shouldClearInput = true;
 }
 
-export function clear() {}
+export function clear() { }
 
-export function allClear() {}
+export function allClear() { }
 
 export function enterDigit(digit: Digit) {
-    userInput *= 10;
-    userInput += digit;
+    if (shouldClearInput) {
+        userInput = digit;
+        shouldClearInput = false;
+        storedOperation = undefined;
+    } else {
+        userInput *= 10;
+        userInput += digit;
+    }
 
     display = userInput;
 }
@@ -57,6 +68,7 @@ let storedOperation: Operator | undefined = undefined;
 let display = 0;
 let userInput = 0;
 let memory = 0;
+let shouldClearInput = false;
 
 export function debug() {
     console.log(`display: ${display}
