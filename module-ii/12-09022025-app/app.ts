@@ -54,6 +54,8 @@ export function addItem(item: Item) {
     return "Success";
 }
 
+export function editItem(item: Item) {}
+
 export function addToStock(itemId: string, amount: number) {}
 
 export function consume(itemId: string, quantity: number) {}

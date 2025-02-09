@@ -19,6 +19,7 @@ export function addItem(item) {
     localStorage.setItem(itemsStorageKey, JSON.stringify(items));
     return "Success";
 }
+export function editItem(item) { }
 export function addToStock(itemId, amount) { }
 export function consume(itemId, quantity) { }
 export function acquire(itemId, serial) { }
