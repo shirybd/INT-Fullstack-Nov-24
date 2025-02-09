@@ -4,14 +4,19 @@
 // manage array of objects
 // relation to other objects
 // API
-export let items = [];
-export let stock = [];
-export let inventory = [];
+const itemsStorageKey = "items";
+let items = JSON.parse(localStorage.getItem(itemsStorageKey)) ?? [];
+let stock = [];
+let inventory = [];
+export function getItems() {
+    return items.slice();
+}
 export function addItem(item) {
     if (items.some((i) => i.id === item.id)) {
         return `Id "${item.id}" already exists`;
     }
     items.push(item);
+    localStorage.setItem(itemsStorageKey, JSON.stringify(items));
     return "Success";
 }
 export function addToStock(itemId, amount) { }
