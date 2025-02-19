@@ -1,12 +1,11 @@
-"use strict";
-exports.__esModule = true;
-exports.toggleTodo = exports.addTodo = exports.getTodos = void 0;
-var todos = [];
-function getTodos() {
+let todos = [];
+export function getTodos() {
     return [];
 }
-exports.getTodos = getTodos;
-function addTodo(todo) { }
-exports.addTodo = addTodo;
-function toggleTodo(todoId) { }
-exports.toggleTodo = toggleTodo;
+export function addTodo(todo) {
+    if (todos.some((t) => t.id === todo.id)) {
+        throw new Error(`Todo with id ${todo.id} already exists`);
+    }
+    todos.push(todo);
+}
+export function toggleTodo(todoId) { }

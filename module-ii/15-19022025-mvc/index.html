@@ -10,7 +10,7 @@
     <main class="stack">
         <h1>My Todo List</h1>
         <form name="add todo">
-            <input type="text" />
+            <input type="text" name="content" required autofocus />
             <button>➕ Add</button>
         </form>
         <ul id="todos">
@@ -18,5 +18,12 @@
             <li>Do demo</li>
         </ul>
     </main>
+    <script type="module">
+        import { init } from "./dist/view.js";
+
+        init(
+            document.forms.namedItem("add todo")
+        );
+    </script>
 </body>
 </html>
