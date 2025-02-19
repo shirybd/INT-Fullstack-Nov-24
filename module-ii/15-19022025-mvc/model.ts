@@ -6,7 +6,7 @@ type Todo = {
 };
 
 let todos: Todo[] = [];
-let onTodosUpdateCallback: () => void;
+let onTodosUpdateCallbacks: (() => void)[] = [];
 
 export function getTodos(): Todo[] {
     return todos
@@ -19,11 +19,11 @@ export function addTodo(todo: Todo) {
     }
 
     todos.push(todo);
-    onTodosUpdateCallback?.();
+    onTodosUpdateCallbacks.forEach((callback) => callback());
 }
 
 export function toggleTodo(todoId: string) {}
 
 export function onTodosUpdate(callback: () => void) {
-    onTodosUpdateCallback = callback;
+    onTodosUpdateCallbacks.push(callback);
 }
