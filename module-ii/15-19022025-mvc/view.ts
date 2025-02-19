@@ -1,6 +1,7 @@
 import { onAddTodoSubmit } from "./controller.js";
+import { getTodos, onTodosUpdate } from "./model.js";
 
-export function init(addTodoForm: HTMLFormElement) {
+export function init(addTodoForm: HTMLFormElement, todoList: HTMLUListElement) {
     addTodoForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -13,4 +14,24 @@ export function init(addTodoForm: HTMLFormElement) {
             console.error(error);
         }
     });
+
+    onTodosUpdate(renderTodos);
+
+    function renderTodos() {
+        const todos = getTodos();
+
+        todoList.innerHTML = "";
+
+        for (const todo of todos) {
+            const li = document.createElement("li");
+
+            li.textContent = todo.content;
+            
+            if (todo.status === "Completed") {
+                li.classList.add("completed");
+            }
+
+            todoList.append(li);
+        }
+    }
 }

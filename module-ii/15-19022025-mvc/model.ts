@@ -6,9 +6,11 @@ type Todo = {
 };
 
 let todos: Todo[] = [];
+let onTodosUpdateCallback: () => void;
 
 export function getTodos(): Todo[] {
-    return [];
+    return todos
+        .toSorted((a, b) => b.createdAt.valueOf() - a.createdAt.valueOf());
 }
 
 export function addTodo(todo: Todo) {
@@ -17,6 +19,11 @@ export function addTodo(todo: Todo) {
     }
 
     todos.push(todo);
+    onTodosUpdateCallback?.();
 }
 
 export function toggleTodo(todoId: string) {}
+
+export function onTodosUpdate(callback: () => void) {
+    onTodosUpdateCallback = callback;
+}
